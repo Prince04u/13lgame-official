@@ -59,14 +59,14 @@ const whyPlayers = [
 ];
 
 const homeFaqs = [
-  { question: "What is 13L Game?", answer: "13L Game is a premier online gaming platform where players can enjoy exciting games like WinGo, Aviator, Mines, Limbo, K3 Lottery, 5D Lottery, and many more. With instant deposits, fast withdrawals, daily free gift codes, and a thriving community of over one million players, 13L Game offers the best online gaming experience available today. The platform is accessible on all devices — mobile, tablet, and desktop — without requiring any app download." },
+  { question: "What is 13L Game?", answer: "13L Game is a premier online  platform where players can enjoy exciting games like WinGo, Aviator, Mines, Limbo, K3 Lottery, 5D Lottery, and many more. With instant deposits, fast withdrawals, daily free gift codes, and a thriving community of over one million players, 13L Game offers the best online  experience available today. The platform is accessible on all devices — mobile, tablet, and desktop — without requiring any app download." },
   { question: "How do I login to 13L Game?", answer: "To login to 13L Game, visit the official website at 13l.video and click the Login button in the top-right corner. Enter your registered mobile number and the password you created during signup. If you've forgotten your password, use the 'Forgot Password' link to reset it via OTP verification. Once logged in, you'll have full access to all 100+ games, your wallet balance, deposit and withdrawal options, and your VIP rewards dashboard on 13L Game." },
   { question: "How do I signup for 13L Game?", answer: "The 13L Game signup process is fast and straightforward. Visit 13l.video, tap the Register button, enter your mobile number, create a strong password, and verify your account with the OTP sent to your phone. The entire 13L Game registration takes less than 30 seconds. Once registered, you can immediately deposit funds, claim your welcome bonus, and start playing any of the 100+ games available on the platform." },
   { question: "How to get free gift codes for 13L Game?", answer: "13L Game free gift codes are shared daily on our official Telegram prediction group. Simply join the group at t.me/officiall13lgames and watch for new codes posted by the admin team. These 13lgame gift codes give you bonus balance that can be used to play any game on the platform. Codes are also released during special events, festivals, and promotional campaigns. VIP members receive exclusive gift codes with higher bonus amounts." },
   { question: "Is 13L Game safe and secure?", answer: "Absolutely! 13L Game employs industry-leading security measures including 256-bit SSL encryption for all data transmission, encrypted password storage, secure payment gateways for transactions, and regular third-party security audits. Your personal information and financial data are fully protected. The platform also uses provably fair algorithms in all games, ensuring complete transparency and fairness in every result." },
   { question: "What games are available on 13L Game?", answer: "13L Game offers a diverse library of 100+ games across multiple categories. Popular titles include WinGo (30s, 1min, 3min color prediction rounds), Aviator (crash game), Mines (grid-based strategy game), Limbo (target multiplier game), K3 Lottery, 5D Lottery, Wheel of Fortune, and dozens of slot games from providers like JILI, SPRIBE, JDB, and TB Chess. New games are added regularly to keep the experience fresh and exciting." },
   { question: "How fast are withdrawals on 13L Game?", answer: "13L Game is known for its lightning-fast withdrawals. Most withdrawal requests are processed within minutes, and the funds are transferred directly to your linked bank account or preferred payment method. There are no hidden fees or unnecessary delays. For first-time withdrawals, a one-time identity verification may be required to ensure account security." },
-  { question: "Does 13L Game have a referral program?", answer: "Yes! 13L Game offers a generous referral program. When you invite friends to register on 13L Game using your unique referral link, you earn commission on their gaming activity. The more active referrals you have, the higher your earnings. It's a fantastic way to earn passive income while sharing the excitement of 13L Game with people you know." },
+  { question: "Does 13L Game have a referral program?", answer: "Yes! 13L Game offers a generous referral program. When you invite friends to register on 13L Game using your unique referral link, you earn commission on their  activity. The more active referrals you have, the higher your earnings. It's a fantastic way to earn passive income while sharing the excitement of 13L Game with people you know." },
 ];
 
 function HomePage() {
@@ -382,10 +382,12 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+           {/* CTA Section */}
       <section className="py-20 px-4" style={{ background: "var(--gradient-hero)" }}>
         <ScaleIn className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold md:text-4xl mb-4">Ready to Start Winning on <span className="text-gradient-gold">13L Game</span>?</h2>
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">
+            Ready to Start Winning on <span className="text-gradient-gold">13L Game</span>?
+          </h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
             Join millions of players who are already winning big on 13L Game. Register now and claim your free bonus! Your next big win is just one click away.
           </p>
@@ -400,12 +402,33 @@ function HomePage() {
         </ScaleIn>
       </section>
 
+      {/* 🔗 SEO Interlink Section */}
+      <section className="py-10 px-4">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Explore More Gaming Platforms
+          </h2>
+
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            If you are enjoying <a href="https://13lgames.live/" target="_blank" className="text-primary underline">13L Game</a>, 
+            you can also explore other trusted platforms like 
+            <a href="https://gangaclub12.net/" target="_blank" className="text-primary underline"> Ganga Club</a> 
+            and 
+            <a href="https://gangaclub12.in/" target="_blank" className="text-primary underline"> Ganga Club India</a>. 
+            These platforms offer exciting online games, bonuses, and secure gameplay similar to 13L Game.
+          </p>
+
+          <div className="mt-4">
+            <a href="https://13lgames.live/" target="_blank" className="underline mx-2">13L Game</a> |
+            <a href="https://gangaclub12.net/" target="_blank" className="underline mx-2">Ganga Club</a> |
+            <a href="https://gangaclub12.in/" target="_blank" className="underline mx-2">Ganga Club India</a>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <FAQSection
         title="13L Game — Frequently Asked Questions"
         subtitle="Find answers to the most common questions about 13L Game login, signup, registration, free gift codes, and more."
         faqs={homeFaqs}
       />
-    </div>
-  );
-}

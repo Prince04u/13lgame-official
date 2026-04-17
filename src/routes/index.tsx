@@ -432,3 +432,6 @@ function HomePage() {
         subtitle="Find answers to the most common questions about 13L Game login, signup, registration, free gift codes, and more."
         faqs={homeFaqs}
       />
+          </div>
+  );
+}

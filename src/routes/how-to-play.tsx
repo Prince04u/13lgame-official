@@ -2,17 +2,27 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { AnimatedSection, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem, ScaleIn } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/how-to-play")({
-  head: () => ({
-    meta: [
-      { title: "How to Play 13L Game — Login, Signup & Register Guide" },
-      { name: "description", content: "Complete guide on how to play 13L Game. Learn 13L Game login, signup, registration process. Step-by-step instructions to start winning on 13L Game." },
-      { property: "og:title", content: "How to Play 13L Game — Complete Guide" },
-      { property: "og:description", content: "Learn how to login, signup, register and play on 13L Game." },
-      { name: "keywords", content: "13l game login, 13l game signup, 13l game register, how to play 13l game" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "How to Play 13L Game — Login, Signup & Register Step-by-Step Guide",
+      description:
+        "Complete guide to playing 13L Game. Learn 13lgame login, signup, register, deposit and how to win on WinGo, Aviator, Mines and more.",
+      path: "/how-to-play",
+      keywords: "how to play 13l game, 13lgame login, 13lgame register, 13lgame signup, wingo guide",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "How to Play", path: "/how-to-play" },
+        ])),
+      ],
+    };
+  },
   component: HowToPlayPage,
 });
 

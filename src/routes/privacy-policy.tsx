@@ -1,17 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/privacy-policy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — 13L Game | Data Protection & Security" },
-      { name: "description", content: "Read 13L Game's privacy policy. Learn how we collect, use, and protect your personal data. 13L Game is committed to user privacy and data security." },
-      { property: "og:title", content: "Privacy Policy — 13L Game" },
-      { property: "og:description", content: "How 13L Game protects your data and privacy." },
-      { name: "keywords", content: "13l game privacy policy, 13l game data protection, 13l game security" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "Privacy Policy — 13L Game | Data Protection & Security",
+      description:
+        "Read 13L Game's privacy policy. How we collect, use and protect your personal data with 256-bit encryption and PCI-DSS compliant payment processing.",
+      path: "/privacy-policy",
+      keywords: "13l game privacy policy, 13l game data protection",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy-policy" },
+        ])),
+      ],
+    };
+  },
   component: PrivacyPolicyPage,
 });
 

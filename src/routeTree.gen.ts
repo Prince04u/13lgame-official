@@ -16,6 +16,10 @@ import { Route as GiftCodesRouteImport } from './routes/gift-codes'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as R13lgameRegisterRouteImport } from './routes/13lgame-register'
+import { Route as R13lgameLoginRouteImport } from './routes/13lgame-login'
+import { Route as R13lgameGiftcodeRouteImport } from './routes/13lgame-giftcode'
+import { Route as R13lgameDownloadRouteImport } from './routes/13lgame-download'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
@@ -53,6 +57,26 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R13lgameRegisterRoute = R13lgameRegisterRouteImport.update({
+  id: '/13lgame-register',
+  path: '/13lgame-register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R13lgameLoginRoute = R13lgameLoginRouteImport.update({
+  id: '/13lgame-login',
+  path: '/13lgame-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R13lgameGiftcodeRoute = R13lgameGiftcodeRouteImport.update({
+  id: '/13lgame-giftcode',
+  path: '/13lgame-giftcode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R13lgameDownloadRoute = R13lgameDownloadRouteImport.update({
+  id: '/13lgame-download',
+  path: '/13lgame-download',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +85,10 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/13lgame-download': typeof R13lgameDownloadRoute
+  '/13lgame-giftcode': typeof R13lgameGiftcodeRoute
+  '/13lgame-login': typeof R13lgameLoginRoute
+  '/13lgame-register': typeof R13lgameRegisterRoute
   '/about': typeof AboutRoute
   '/disclaimer': typeof DisclaimerRoute
   '/games': typeof GamesRoute
@@ -71,6 +99,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/13lgame-download': typeof R13lgameDownloadRoute
+  '/13lgame-giftcode': typeof R13lgameGiftcodeRoute
+  '/13lgame-login': typeof R13lgameLoginRoute
+  '/13lgame-register': typeof R13lgameRegisterRoute
   '/about': typeof AboutRoute
   '/disclaimer': typeof DisclaimerRoute
   '/games': typeof GamesRoute
@@ -82,6 +114,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/13lgame-download': typeof R13lgameDownloadRoute
+  '/13lgame-giftcode': typeof R13lgameGiftcodeRoute
+  '/13lgame-login': typeof R13lgameLoginRoute
+  '/13lgame-register': typeof R13lgameRegisterRoute
   '/about': typeof AboutRoute
   '/disclaimer': typeof DisclaimerRoute
   '/games': typeof GamesRoute
@@ -94,6 +130,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/13lgame-download'
+    | '/13lgame-giftcode'
+    | '/13lgame-login'
+    | '/13lgame-register'
     | '/about'
     | '/disclaimer'
     | '/games'
@@ -104,6 +144,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/13lgame-download'
+    | '/13lgame-giftcode'
+    | '/13lgame-login'
+    | '/13lgame-register'
     | '/about'
     | '/disclaimer'
     | '/games'
@@ -114,6 +158,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/13lgame-download'
+    | '/13lgame-giftcode'
+    | '/13lgame-login'
+    | '/13lgame-register'
     | '/about'
     | '/disclaimer'
     | '/games'
@@ -125,6 +173,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R13lgameDownloadRoute: typeof R13lgameDownloadRoute
+  R13lgameGiftcodeRoute: typeof R13lgameGiftcodeRoute
+  R13lgameLoginRoute: typeof R13lgameLoginRoute
+  R13lgameRegisterRoute: typeof R13lgameRegisterRoute
   AboutRoute: typeof AboutRoute
   DisclaimerRoute: typeof DisclaimerRoute
   GamesRoute: typeof GamesRoute
@@ -185,6 +237,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/13lgame-register': {
+      id: '/13lgame-register'
+      path: '/13lgame-register'
+      fullPath: '/13lgame-register'
+      preLoaderRoute: typeof R13lgameRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/13lgame-login': {
+      id: '/13lgame-login'
+      path: '/13lgame-login'
+      fullPath: '/13lgame-login'
+      preLoaderRoute: typeof R13lgameLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/13lgame-giftcode': {
+      id: '/13lgame-giftcode'
+      path: '/13lgame-giftcode'
+      fullPath: '/13lgame-giftcode'
+      preLoaderRoute: typeof R13lgameGiftcodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/13lgame-download': {
+      id: '/13lgame-download'
+      path: '/13lgame-download'
+      fullPath: '/13lgame-download'
+      preLoaderRoute: typeof R13lgameDownloadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +277,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R13lgameDownloadRoute: R13lgameDownloadRoute,
+  R13lgameGiftcodeRoute: R13lgameGiftcodeRoute,
+  R13lgameLoginRoute: R13lgameLoginRoute,
+  R13lgameRegisterRoute: R13lgameRegisterRoute,
   AboutRoute: AboutRoute,
   DisclaimerRoute: DisclaimerRoute,
   GamesRoute: GamesRoute,

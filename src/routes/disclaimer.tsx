@@ -1,17 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedSection } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/disclaimer")({
-  head: () => ({
-    meta: [
-      { title: "Disclaimer — 13L Game | Important Information" },
-      { name: "description", content: "Read the 13L Game disclaimer. Important information about the platform, responsible gaming, and user responsibilities." },
-      { property: "og:title", content: "Disclaimer — 13L Game" },
-      { property: "og:description", content: "Important disclaimer and responsible gaming information for 13L Game." },
-      { name: "keywords", content: "13l game disclaimer, 13l game responsible gaming" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "Disclaimer — 13L Game | Responsible Gaming & User Responsibilities",
+      description:
+        "Read the 13L Game disclaimer. Responsible gaming practices, gaming risk acknowledgment, age restrictions and prediction group disclosures.",
+      path: "/disclaimer",
+      keywords: "13l game disclaimer, 13l game responsible gaming",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Disclaimer", path: "/disclaimer" },
+        ])),
+      ],
+    };
+  },
   component: DisclaimerPage,
 });
 

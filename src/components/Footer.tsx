@@ -39,7 +39,11 @@ export function Footer() {
               <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About 13L Game</Link></li>
               <li><Link to="/games" className="text-muted-foreground hover:text-primary transition-colors">Games</Link></li>
               <li><Link to="/how-to-play" className="text-muted-foreground hover:text-primary transition-colors">How to Play</Link></li>
-              <li><Link to="/gift-codes" className="text-muted-foreground hover:text-primary transition-colors">Gift Codes</Link></li>
+              <li><Link to="/13lgame-login" className="text-muted-foreground hover:text-primary transition-colors">13lgame Login</Link></li>
+              <li><Link to="/13lgame-register" className="text-muted-foreground hover:text-primary transition-colors">13lgame Register</Link></li>
+              <li><Link to="/13lgame-giftcode" className="text-muted-foreground hover:text-primary transition-colors">13lgame Giftcode</Link></li>
+              <li><Link to="/13lgame-download" className="text-muted-foreground hover:text-primary transition-colors">13l Game Download</Link></li>
+              <li><Link to="/gift-codes" className="text-muted-foreground hover:text-primary transition-colors">Gift Codes Guide</Link></li>
             </ul>
           </AnimatedSection>
 

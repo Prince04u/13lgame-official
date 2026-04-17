@@ -2,17 +2,27 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { AnimatedSection, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem, ScaleIn } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/games")({
-  head: () => ({
-    meta: [
-      { title: "13L Game Games — WinGo, Aviator, Mines & More | Play Now" },
-      { name: "description", content: "Explore 100+ games on 13L Game — WinGo, Aviator, Mines, Limbo, K3 Lottery, Slots. Login to 13L Game and play exciting games to win big rewards." },
-      { property: "og:title", content: "13L Game — Explore 100+ Exciting Online Games" },
-      { property: "og:description", content: "Play WinGo, Aviator, Mines & more on 13L Game. Login now!" },
-      { name: "keywords", content: "13l game, 13l game login, 13l game games, wingo game, aviator game, mines game" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "13L Game Games — WinGo, Aviator, Mines & 100+ Online Titles",
+      description:
+        "Browse 100+ games on 13L Game including WinGo, Aviator, Mines, Limbo, K3 Lottery, 5D and slots. Login to 13L Game and play to win real money instantly.",
+      path: "/games",
+      keywords: "13l game games, wingo game, aviator game, mines game, 13lgame login, 13lgame register",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Games", path: "/games" },
+        ])),
+      ],
+    };
+  },
   component: GamesPage,
 });
 

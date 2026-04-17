@@ -2,18 +2,29 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { AnimatedSection, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem, ScaleIn } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, faqJsonLd, breadcrumbJsonLd } from "../lib/seo";
 import logoImg from "../assets/13l-game-logo.png";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About 13L Game — Trusted Online Gaming Platform | 13L Game Login & Register" },
-      { name: "description", content: "Learn about 13L Game, the trusted online gaming platform. Discover our mission, values, and why millions choose 13L Game for login, signup, and gaming." },
-      { property: "og:title", content: "About 13L Game — Trusted Online Gaming Platform" },
-      { property: "og:description", content: "Learn about 13L Game — trusted by millions for exciting online gaming." },
-      { name: "keywords", content: "13l game, about 13l game, 13l game login, 13l game register, 13l game signup" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "About 13L Game — Trusted Online Gaming Platform & Our Story",
+      description:
+        "Learn about 13L Game — the trusted online gaming platform behind WinGo, Aviator and Mines. Our mission, values, security practices and 1M+ player community.",
+      path: "/about",
+      keywords: "about 13l game, 13l game story, 13l game mission, 13lgame login, 13lgame register",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(faqJsonLd(aboutFaqs)),
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])),
+      ],
+    };
+  },
   component: AboutPage,
 });
 

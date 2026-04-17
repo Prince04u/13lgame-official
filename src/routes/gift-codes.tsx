@@ -2,17 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { AnimatedSection, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem, ScaleIn } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, faqJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/gift-codes")({
-  head: () => ({
-    meta: [
-      { title: "13L Game Gift Codes — Free Gift Codes & Bonus | 13L Code Game Free Gift Code" },
-      { name: "description", content: "Get 13L Game free gift codes daily! Claim 13lgame gift code for bonus balance. Latest 13L code game free gift code for new and existing players." },
-      { property: "og:title", content: "13L Game Free Gift Codes — Claim Your Bonus" },
-      { property: "og:description", content: "Get daily 13L Game free gift codes and bonus balance!" },
-      { name: "keywords", content: "13lgame gift code, 13l code game free gift code, 13l game free gift code, 13l game bonus code" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "13L Game Gift Codes — Daily 13lgame Free Giftcode Drops",
+      description:
+        "Get 13L Game free gift codes daily. How to claim, redeem and stack 13lgame giftcode bonuses for free wallet balance on WinGo, Aviator and more.",
+      path: "/gift-codes",
+      keywords: "13lgame gift code, 13lgame free giftcode, 13l code game free gift code, 13l game bonus",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(faqJsonLd(giftFaqs)),
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Gift Codes", path: "/gift-codes" },
+        ])),
+      ],
+    };
+  },
   component: GiftCodesPage,
 });
 

@@ -2,22 +2,40 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { AnimatedSection, SlideInLeft, SlideInRight, ScaleIn, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, faqJsonLd, breadcrumbJsonLd } from "../lib/seo";
 import logoImg from "../assets/13l-game-logo.png";
 
+const homeFaqs = [
+  { question: "What is 13L Game?", answer: "13L Game is a premier online gaming platform where players can enjoy exciting games like WinGo, Aviator, Mines, Limbo, K3 Lottery, 5D Lottery, and many more. With instant deposits, fast withdrawals, daily free gift codes, and a thriving community of over one million players, 13L Game offers the best online gaming experience available today. The platform is accessible on all devices — mobile, tablet, and desktop — without requiring any app download." },
+  { question: "How do I login to 13L Game?", answer: "To login to 13L Game, visit the official website at 13l.video and click the Login button in the top-right corner. Enter your registered mobile number and the password you created during signup. If you've forgotten your password, use the 'Forgot Password' link to reset it via OTP verification. Once logged in, you'll have full access to all 100+ games, your wallet balance, deposit and withdrawal options, and your VIP rewards dashboard on 13L Game." },
+  { question: "How do I signup for 13L Game?", answer: "The 13L Game signup process is fast and straightforward. Visit 13l.video, tap the Register button, enter your mobile number, create a strong password, and verify your account with the OTP sent to your phone. The entire 13L Game registration takes less than 30 seconds. Once registered, you can immediately deposit funds, claim your welcome bonus, and start playing any of the 100+ games available on the platform." },
+  { question: "How to get free gift codes for 13L Game?", answer: "13L Game free gift codes are shared daily on our official Telegram prediction group. Simply join the group at t.me/officiall13lgames and watch for new codes posted by the admin team. These 13lgame gift codes give you bonus balance that can be used to play any game on the platform. Codes are also released during special events, festivals, and promotional campaigns. VIP members receive exclusive gift codes with higher bonus amounts." },
+  { question: "Is 13L Game safe and secure?", answer: "Absolutely! 13L Game employs industry-leading security measures including 256-bit SSL encryption for all data transmission, encrypted password storage, secure payment gateways for transactions, and regular third-party security audits. Your personal information and financial data are fully protected. The platform also uses provably fair algorithms in all games, ensuring complete transparency and fairness in every result." },
+  { question: "What games are available on 13L Game?", answer: "13L Game offers a diverse library of 100+ games across multiple categories. Popular titles include WinGo (30s, 1min, 3min color prediction rounds), Aviator (crash game), Mines (grid-based strategy game), Limbo (target multiplier game), K3 Lottery, 5D Lottery, Wheel of Fortune, and dozens of slot games from providers like JILI, SPRIBE, JDB, and TB Chess. New games are added regularly to keep the experience fresh and exciting." },
+  { question: "How fast are withdrawals on 13L Game?", answer: "13L Game is known for its lightning-fast withdrawals. Most withdrawal requests are processed within minutes, and the funds are transferred directly to your linked bank account or preferred payment method. There are no hidden fees or unnecessary delays. For first-time withdrawals, a one-time identity verification may be required to ensure account security." },
+  { question: "Does 13L Game have a referral program?", answer: "Yes! 13L Game offers a generous referral program. When you invite friends to register on 13L Game using your unique referral link, you earn commission on their gaming activity. The more active referrals you have, the higher your earnings. It's a fantastic way to earn passive income while sharing the excitement of 13L Game with people you know." },
+];
+
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "13L Game — Play & Win Exciting Online Games | Login & Register" },
-      { name: "description", content: "13L Game is a top online gaming platform. Play WinGo, Aviator, Mines & more. 13L Game login, signup, register & claim free gift codes. Start winning today!" },
-      { property: "og:title", content: "13L Game — Play & Win Exciting Online Games" },
-      { property: "og:description", content: "Join 13L Game for thrilling casino games, free gift codes, and massive bonuses. Login or register now!" },
-      { property: "og:type", content: "website" },
-      { name: "keywords", content: "13l game, 13l game login, 13l game signup, 13l game register, 13lgame gift code, 13l code game free gift code" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "13L Game — Play & Win Online" },
-      { name: "twitter:description", content: "Play exciting games on 13L Game. Login, register & claim free gift codes!" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "13L Game – Login, Register & Earn Money Online | Official Site",
+      description:
+        "13L Game official platform. Login, register, get free gift codes and start earning online safely and fast.",
+      path: "/",
+      keywords:
+        "13l game, 13lgame login, 13lgame register, 13lgame signup, 13lgame giftcode, 13lgame free giftcode, 13l game download, 13lgame prediction group",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(faqJsonLd(homeFaqs)),
+        jsonLdScript(
+          breadcrumbJsonLd([{ name: "Home", path: "/" }]),
+        ),
+      ],
+    };
+  },
   component: HomePage,
 });
 
@@ -58,17 +76,6 @@ const whyPlayers = [
   { icon: "🤝", title: "Referral Bonuses", desc: "Invite friends to join 13L Game and earn commission on their activity. The more friends you refer, the more you earn — it's a win-win for everyone." },
 ];
 
-const homeFaqs = [
-  { question: "What is 13L Game?", answer: "13L Game is a premier online  platform where players can enjoy exciting games like WinGo, Aviator, Mines, Limbo, K3 Lottery, 5D Lottery, and many more. With instant deposits, fast withdrawals, daily free gift codes, and a thriving community of over one million players, 13L Game offers the best online  experience available today. The platform is accessible on all devices — mobile, tablet, and desktop — without requiring any app download." },
-  { question: "How do I login to 13L Game?", answer: "To login to 13L Game, visit the official website at 13l.video and click the Login button in the top-right corner. Enter your registered mobile number and the password you created during signup. If you've forgotten your password, use the 'Forgot Password' link to reset it via OTP verification. Once logged in, you'll have full access to all 100+ games, your wallet balance, deposit and withdrawal options, and your VIP rewards dashboard on 13L Game." },
-  { question: "How do I signup for 13L Game?", answer: "The 13L Game signup process is fast and straightforward. Visit 13l.video, tap the Register button, enter your mobile number, create a strong password, and verify your account with the OTP sent to your phone. The entire 13L Game registration takes less than 30 seconds. Once registered, you can immediately deposit funds, claim your welcome bonus, and start playing any of the 100+ games available on the platform." },
-  { question: "How to get free gift codes for 13L Game?", answer: "13L Game free gift codes are shared daily on our official Telegram prediction group. Simply join the group at t.me/officiall13lgames and watch for new codes posted by the admin team. These 13lgame gift codes give you bonus balance that can be used to play any game on the platform. Codes are also released during special events, festivals, and promotional campaigns. VIP members receive exclusive gift codes with higher bonus amounts." },
-  { question: "Is 13L Game safe and secure?", answer: "Absolutely! 13L Game employs industry-leading security measures including 256-bit SSL encryption for all data transmission, encrypted password storage, secure payment gateways for transactions, and regular third-party security audits. Your personal information and financial data are fully protected. The platform also uses provably fair algorithms in all games, ensuring complete transparency and fairness in every result." },
-  { question: "What games are available on 13L Game?", answer: "13L Game offers a diverse library of 100+ games across multiple categories. Popular titles include WinGo (30s, 1min, 3min color prediction rounds), Aviator (crash game), Mines (grid-based strategy game), Limbo (target multiplier game), K3 Lottery, 5D Lottery, Wheel of Fortune, and dozens of slot games from providers like JILI, SPRIBE, JDB, and TB Chess. New games are added regularly to keep the experience fresh and exciting." },
-  { question: "How fast are withdrawals on 13L Game?", answer: "13L Game is known for its lightning-fast withdrawals. Most withdrawal requests are processed within minutes, and the funds are transferred directly to your linked bank account or preferred payment method. There are no hidden fees or unnecessary delays. For first-time withdrawals, a one-time identity verification may be required to ensure account security." },
-  { question: "Does 13L Game have a referral program?", answer: "Yes! 13L Game offers a generous referral program. When you invite friends to register on 13L Game using your unique referral link, you earn commission on their  activity. The more active referrals you have, the higher your earnings. It's a fantastic way to earn passive income while sharing the excitement of 13L Game with people you know." },
-];
-
 function HomePage() {
   return (
     <div className="overflow-hidden">
@@ -99,7 +106,9 @@ function HomePage() {
             <img
               src={logoImg}
               alt="13L Game Logo — Play & Win Online Games"
-              className="mx-auto h-28 md:h-36 mb-6 rounded-2xl"
+              width={144}
+              height={144}
+              className="mx-auto h-28 md:h-36 w-auto mb-6 rounded-2xl"
               style={{ animation: "float 4s ease-in-out infinite" }}
             />
           </motion.div>
@@ -142,11 +151,14 @@ function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="mt-6"
+            className="mt-6 flex flex-wrap items-center justify-center gap-3"
           >
             <a href="https://t.me/officiall13lgames" target="_blank" rel="noopener noreferrer" className="btn-outline-light text-xs">
-              📢 Join 13L Game Prediction Group on Telegram
+              📢 Join 13lgame Prediction Group on Telegram
             </a>
+            <Link to="/13lgame-giftcode" className="btn-outline-light text-xs">
+              🎁 Latest 13lgame Free Giftcode
+            </Link>
           </motion.div>
         </div>
 
@@ -191,17 +203,17 @@ function HomePage() {
                   13L Game is one of the fastest-growing online gaming platforms in India, trusted by millions of players who enjoy a wide variety of exciting games every day. Whether you are a fan of color prediction games like WinGo, adrenaline-pumping crash games like Aviator, strategic grid games like Mines, or classic lottery formats like K3 and 5D — 13L Game has it all under one roof.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  The platform was built with a simple vision: to make online gaming accessible, fair, and rewarding for everyone. From the moment you complete your 13L Game signup, you are welcomed with bonuses, free gift codes, and access to over 100 games powered by industry-leading providers like JILI, SPRIBE, JDB, and TB Chess.
+                  The platform was built with a simple vision: to make online gaming accessible, fair, and rewarding for everyone. From the moment you complete your <Link to="/13lgame-register" className="text-primary hover:underline">13lgame register</Link> step, you are welcomed with bonuses, free gift codes, and access to over 100 games powered by industry-leading providers like JILI, SPRIBE, JDB, and TB Chess.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  What sets 13L Game apart from other platforms is our commitment to instant payouts, provably fair algorithms, and a vibrant community that supports each other through prediction groups, strategy sharing, and daily gift code drops. Players who login to 13L Game don't just play — they become part of a thriving ecosystem of gaming enthusiasts.
+                  What sets 13L Game apart from other platforms is our commitment to instant payouts, provably fair algorithms, and a vibrant community that supports each other through our <Link to="/gift-codes" className="text-primary hover:underline">13lgame prediction group</Link>, strategy sharing, and daily gift code drops. Players who login to 13L Game don't just play — they become part of a thriving ecosystem of gaming enthusiasts.
                 </p>
               </div>
             </SlideInLeft>
             <SlideInRight>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  Registering on 13L Game takes less than 30 seconds. All you need is a mobile number and you are ready to explore a world of entertainment. The platform works flawlessly on mobile browsers — no app download required. Whether you are on Android, iOS, or desktop, the 13L Game experience is smooth, fast, and visually stunning.
+                  Registering on 13L Game takes less than 30 seconds. All you need is a mobile number and you are ready to explore a world of entertainment. The platform works flawlessly on mobile browsers — no <Link to="/13lgame-download" className="text-primary hover:underline">13l game download</Link> required. Whether you are on Android, iOS, or desktop, the 13L Game experience is smooth, fast, and visually stunning.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Security is at the core of everything we do. 13L Game uses 256-bit SSL encryption, secure payment gateways, and strict data protection policies to ensure your personal information and funds are always safe. Our games run on certified Random Number Generators (RNG), guaranteeing that every result is completely fair and unbiased.
@@ -255,7 +267,7 @@ function HomePage() {
             {popularGames.map((game) => (
               <StaggerItem key={game.name}>
                 <motion.div whileHover={{ y: -8, scale: 1.02 }} className="gaming-card text-center cursor-pointer h-full flex flex-col">
-                  <img src={game.img} alt={`${game.name} — Play on 13L Game`} className="mx-auto h-24 w-24 object-contain mb-4 rounded-xl" />
+                  <img src={game.img} alt={`${game.name} — Play on 13L Game`} loading="lazy" decoding="async" width={96} height={96} className="mx-auto h-24 w-24 object-contain mb-4 rounded-xl" />
                   <h3 className="font-bold text-foreground mb-2">{game.name}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{game.desc}</p>
                   <a href="https://13l.video/" target="_blank" rel="noopener noreferrer" className="btn-primary mt-4 text-xs !px-4 !py-2 w-full">
@@ -303,20 +315,21 @@ function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { step: "01", title: "Register on 13L Game", desc: "Visit 13l.video and create your free account. 13L Game signup takes less than 30 seconds with just your mobile number. You'll receive an OTP for verification and your account will be ready instantly." },
-              { step: "02", title: "Deposit & Claim Bonus", desc: "Make your first deposit on 13L Game using UPI, bank transfer, or other supported methods. Claim your welcome bonus automatically and redeem any available 13L Game free gift codes for extra balance." },
-              { step: "03", title: "Play & Win Big", desc: "Choose from 100+ games on 13L Game. Play WinGo, Aviator, Mines, Limbo, K3, and more. Win real money and withdraw your earnings instantly to your bank account — no delays, no hassles!" },
+              { step: "01", title: "Register on 13L Game", desc: "Visit 13l.video and create your free account. 13lgame signup takes less than 30 seconds with just your mobile number. You'll receive an OTP for verification and your account will be ready instantly.", to: "/13lgame-register" as const },
+              { step: "02", title: "Deposit & Claim Bonus", desc: "Make your first deposit on 13L Game using UPI, bank transfer, or other supported methods. Claim your welcome bonus automatically and redeem any available 13lgame free giftcode for extra balance.", to: "/13lgame-giftcode" as const },
+              { step: "03", title: "Play & Win Big", desc: "Choose from 100+ games on 13L Game. Play WinGo, Aviator, Mines, Limbo, K3, and more. Win real money and withdraw your earnings instantly to your bank account — no delays, no hassles!", to: "/games" as const },
             ].map((item, i) => (
               <AnimatedSection key={item.step} delay={i * 0.15}>
-                <div className="gaming-card text-center relative overflow-hidden h-full">
+                <div className="gaming-card text-center relative overflow-hidden h-full flex flex-col">
                   <span className="text-6xl font-black text-primary/10 absolute top-2 right-4">{item.step}</span>
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex-1">
                     <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
                       <span className="text-primary font-bold">{item.step}</span>
                     </div>
                     <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
+                  <Link to={item.to} className="text-primary text-xs mt-4 hover:underline relative z-10">Learn more →</Link>
                 </div>
               </AnimatedSection>
             ))}
@@ -361,33 +374,35 @@ function HomePage() {
           </AnimatedSection>
           <AnimatedSection>
             <div className="gaming-card space-y-5">
-              <h3 className="text-xl font-bold text-foreground">13L Game Login — Access Your Account Anytime</h3>
+              <h3 className="text-xl font-bold text-foreground">13lgame Login — Access Your Account Anytime</h3>
               <p className="text-muted-foreground leading-relaxed">
-                The 13L Game login process is designed to be quick and secure. Whether you are accessing the platform from your smartphone during a commute or from your desktop at home, logging into 13L Game is seamless. Simply visit 13l.video, enter your registered mobile number and password, and you'll be taken directly to your dashboard. From there, you can check your wallet balance, browse games, claim bonuses, and start playing within seconds. If you ever forget your password, 13L Game offers instant recovery through OTP verification sent to your registered mobile number.
+                The <Link to="/13lgame-login" className="text-primary hover:underline">13lgame login</Link> process is designed to be quick and secure. Whether you are accessing the platform from your smartphone during a commute or from your desktop at home, logging into 13L Game is seamless. Simply visit 13l.video, enter your registered mobile number and password, and you'll be taken directly to your dashboard. From there, you can check your wallet balance, browse games, claim bonuses, and start playing within seconds. If you ever forget your password, 13L Game offers instant recovery through OTP verification sent to your registered mobile number.
               </p>
-              <h3 className="text-xl font-bold text-foreground">13L Game Signup & Registration — Join in 30 Seconds</h3>
+              <h3 className="text-xl font-bold text-foreground">13lgame Signup & Register — Join in 30 Seconds</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Signing up for 13L Game is one of the easiest registration processes you'll find on any gaming platform. No lengthy forms, no email verification chains — just enter your mobile number, create a password, verify with OTP, and you're in. The 13L Game registration process respects your time and gets you to the action fast. New players are immediately eligible for welcome bonuses and can start redeeming 13L Game free gift codes from day one. Whether you're a seasoned online gamer or completely new to the world of prediction games, 13L Game makes the onboarding experience welcoming and intuitive.
+                Signing up for 13L Game is one of the easiest registration processes you'll find on any gaming platform. No lengthy forms, no email verification chains — just enter your mobile number, create a password, verify with OTP, and you're in. The 13lgame register flow respects your time and gets you to the action fast. New players are immediately eligible for welcome bonuses and can start redeeming 13lgame free giftcode rewards from day one. Whether you're a seasoned online gamer or completely new to the world of prediction games, the 13lgame signup experience is welcoming and intuitive.
               </p>
-              <h3 className="text-xl font-bold text-foreground">13L Game Gift Codes — Free Bonuses Every Day</h3>
+              <h3 className="text-xl font-bold text-foreground">13lgame Giftcode — Free Bonuses Every Day</h3>
               <p className="text-muted-foreground leading-relaxed">
-                One of the most loved features of 13L Game is the daily distribution of free gift codes. These 13lgame gift codes are shared exclusively through our official Telegram prediction group, giving players bonus balance they can use across any game on the platform. Whether you're looking for a 13L code game free gift code to try a new game risk-free or want to boost your existing balance, our gift code system ensures there's always something extra for you. During festivals and special events, premium gift codes with higher bonus amounts are released, making it even more rewarding to be part of the 13L Game community.
+                One of the most loved features of 13L Game is the daily distribution of free gift codes. These 13lgame giftcode drops are shared exclusively through our official Telegram <Link to="/13lgame-giftcode" className="text-primary hover:underline">13lgame prediction group</Link>, giving players bonus balance they can use across any game on the platform. Whether you're looking for a 13lgame free giftcode to try a new game risk-free or want to boost your existing balance, our gift code system ensures there's always something extra for you. During festivals and special events, premium gift codes with higher bonus amounts are released, making it even more rewarding to be part of the 13L Game community.
               </p>
-              <h3 className="text-xl font-bold text-foreground">13L Game Prediction Group — Tips, Strategies & Community</h3>
+              <h3 className="text-xl font-bold text-foreground">13l Game Download — No App Required</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Our official Telegram prediction group is the heartbeat of the 13L Game community. Thousands of active members share game strategies, winning tips, and real-time predictions for games like WinGo and Aviator. It's also the primary channel for receiving 13L Game free gift codes, event announcements, and platform updates. Whether you're looking to learn from experienced players or want to share your own winning strategies, the prediction group is the place to be. Join at t.me/officiall13lgames and connect with fellow 13L Game enthusiasts today.
+                Looking for a <Link to="/13lgame-download" className="text-primary hover:underline">13l game download</Link>? Good news — 13L Game runs entirely in your browser, so no APK, no app store install, and no storage worries. Add the site to your home screen for an app-like experience that updates instantly without manual upgrades. The web app loads in under two seconds on average mobile networks and supports every major Android, iOS, and desktop browser.
+              </p>
+              <h3 className="text-xl font-bold text-foreground">13lgame Prediction Group — Tips, Strategies & Community</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Our official Telegram prediction group is the heartbeat of the 13L Game community. Thousands of active members share game strategies, winning tips, and real-time predictions for games like WinGo and Aviator. It's also the primary channel for receiving 13lgame free giftcode drops, event announcements, and platform updates. Whether you're looking to learn from experienced players or want to share your own winning strategies, the prediction group is the place to be. Join at <a href="https://t.me/officiall13lgames" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">t.me/officiall13lgames</a> and connect with fellow 13L Game enthusiasts today.
               </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-           {/* CTA Section */}
+      {/* CTA Section */}
       <section className="py-20 px-4" style={{ background: "var(--gradient-hero)" }}>
         <ScaleIn className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold md:text-4xl mb-4">
-            Ready to Start Winning on <span className="text-gradient-gold">13L Game</span>?
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">Ready to Start Winning on <span className="text-gradient-gold">13L Game</span>?</h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
             Join millions of players who are already winning big on 13L Game. Register now and claim your free bonus! Your next big win is just one click away.
           </p>
@@ -395,41 +410,19 @@ function HomePage() {
             <a href="https://13l.video/" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
               Register on 13L Game
             </a>
-            <Link to="/gift-codes" className="btn-gold text-base px-8 py-4">
-              Get Free Gift Codes
+            <Link to="/13lgame-giftcode" className="btn-gold text-base px-8 py-4">
+              Get 13lgame Free Giftcode
             </Link>
           </div>
         </ScaleIn>
       </section>
 
-      {/* 🔗 SEO Interlink Section */}
-      <section className="py-10 px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            Explore More Gaming Platforms
-          </h2>
-
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            If you are enjoying <a href="https://13lgames.live/" target="_blank" className="text-primary underline">13L Game</a>, 
-            you can also explore other trusted platforms like 
-            <a href="https://gangaclub12.net/" target="_blank" className="text-primary underline"> Ganga Club</a> and <a href="https://gangaclub12.in/" target="_blank" className="text-primary underline"> Ganga games</a>. 
-            These platforms offer exciting online games, bonuses, and secure gameplay similar to 13L Game.
-          </p>
-
-          <div className="mt-4">
-            <a href="https://13lgames.live/" target="_blank" className="underline mx-2">13L Game</a> |
-            <a href="https://gangaclub12.net/" target="_blank" className="underline mx-2">Ganga Club</a> |
-            <a href="https://gangaclub12.in/" target="_blank" className="underline mx-2">Ganga Games</a>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <FAQSection
         title="13L Game — Frequently Asked Questions"
-        subtitle="Find answers to the most common questions about 13L Game login, signup, registration, free gift codes, and more."
+        subtitle="Find answers to the most common questions about 13lgame login, signup, register, free giftcode, download and prediction group."
         faqs={homeFaqs}
       />
-          </div>
+    </div>
   );
 }

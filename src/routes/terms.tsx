@@ -1,17 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedSection } from "../components/AnimatedSection";
 import { FAQSection } from "../components/FAQSection";
+import { buildMeta, jsonLdScript, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: [
-      { title: "Terms of Service — 13L Game | Rules & Conditions" },
-      { name: "description", content: "Read 13L Game's terms of service. Understand the rules, conditions, and guidelines for using the 13L Game platform." },
-      { property: "og:title", content: "Terms of Service — 13L Game" },
-      { property: "og:description", content: "Terms and conditions for using 13L Game platform." },
-      { name: "keywords", content: "13l game terms, 13l game conditions, 13l game rules" },
-    ],
-  }),
+  head: () => {
+    const seo = buildMeta({
+      title: "Terms of Service — 13L Game | Rules, Conditions & Fair Play",
+      description:
+        "Read the 13L Game Terms of Service. Account rules, fair play policy, deposit and withdrawal terms, gift code conditions and dispute resolution.",
+      path: "/terms",
+      keywords: "13l game terms, 13l game conditions, 13l game rules",
+    });
+    return {
+      ...seo,
+      scripts: [
+        jsonLdScript(breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Terms", path: "/terms" },
+        ])),
+      ],
+    };
+  },
   component: TermsPage,
 });
 

@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "13lgame-official",
+  "name": "13lgame-officiall",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"]
 }

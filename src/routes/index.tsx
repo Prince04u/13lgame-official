@@ -412,16 +412,14 @@ function HomePage() {
           <p className="text-muted-foreground leading-relaxed mb-4">
             If you are enjoying <a href="https://13lgames.live/" target="_blank" className="text-primary underline">13L Game</a>, 
             you can also explore other trusted platforms like 
-            <a href="https://gangaclub12.net/" target="_blank" className="text-primary underline"> Ganga Club</a> 
-            and 
-            <a href="https://gangaclub12.in/" target="_blank" className="text-primary underline"> Ganga Club India</a>. 
+            <a href="https://gangaclub12.net/" target="_blank" className="text-primary underline"> Ganga Club</a> and <a href="https://gangaclub12.in/" target="_blank" className="text-primary underline"> Ganga Club India</a>. 
             These platforms offer exciting online games, bonuses, and secure gameplay similar to 13L Game.
           </p>
 
           <div className="mt-4">
             <a href="https://13lgames.live/" target="_blank" className="underline mx-2">13L Game</a> |
             <a href="https://gangaclub12.net/" target="_blank" className="underline mx-2">Ganga Club</a> |
-            <a href="https://gangaclub12.in/" target="_blank" className="underline mx-2">Ganga Club India</a>
+            <a href="https://gangaclub12.in/" target="_blank" className="underline mx-2">Ganga Games</a>
           </div>
         </div>
       </section>

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://13l.video/sitemap.xml
+Sitemap: https://13lgames.live/sitemap.xml
